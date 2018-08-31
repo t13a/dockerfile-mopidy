@@ -1,0 +1,24 @@
+#!/bin/sh
+cat << EOF > "${MOPIDY_CONFIG_FILE}"
+[core]
+cache_dir = ${MOPIDY_CACHE_DIR}
+config_dir = ${MOPIDY_CONFIG_DIR}
+data_dir = ${MOPIDY_DATA_DIR}
+
+[mpd]
+hostname = ::
+
+[http]
+hostname = ::
+
+[file]
+media_dirs =
+  ${MOPIDY_MEDIA_DIR}|Media
+
+[local]
+library = images
+media_dir = ${MOPIDY_MEDIA_DIR}
+
+[local-images]
+library = sqlite
+EOF
